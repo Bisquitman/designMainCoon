@@ -1,7 +1,7 @@
 $('document').ready(function () {
   // Выделение пункта меню текущей страницы
   $('.menu-item a').each(function () {
-    if ('https://github.com/Bisquitman/designMainCoon/' + $(this).attr('href') == window.location.href) {
+    if ('https://bisquitman.github.io/designMainCoon/' + $(this).attr('href') == window.location.href) {
       $(this).addClass('active');
     }
   });
