@@ -7,6 +7,11 @@
     font-weight: normal;
 }
 
+.boldRob() {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+
 .regYes() {
     font-family: 'Yeseva One', cursive;
     font-weight: normal;
@@ -18,6 +23,7 @@
 @bg-header: #181617;
 @color-gold: #A07B50;
 @bg-promo: #151313;
+@coeff: 0.6;
 
 
 // Базовые настройки
@@ -66,6 +72,22 @@ input:focus,
     outline-width: 0 !important;
     outline-style: none !important;
     box-shadow: 0 0 0 0 rgba(0, 123, 255, 0) !important;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    max-width: 1366px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 0;
+    margin-block-start: 0;
 }
 
 .container {
@@ -201,13 +223,6 @@ input:focus,
 // Шапка ----------------------------------------------------------------
 
 // Питомцы
-section {
-    display: flex;
-    align-items: center;
-    padding-top: 12rem;
-    text-align: center;
-}
-
 .menu .menu-link:focus,
 .menu .menu-link.active {
     color: white;
@@ -301,6 +316,117 @@ section {
     }
 }
 
+// .circle-block {
+//     position: relative;
+//     margin-top: 6rem;
+//     font-size: 1.6rem;
+//     // margin: 0 auto;
+
+//     & ul {
+//         list-style: none;
+//         line-height: 1.5;
+//         color: white;
+//     }
+// }
+
+// .promo-cat {
+//     display: block;
+//     margin: -160px auto 0;
+
+//     & img {
+//         position: absolute;
+//         top: -15px;
+//         left: 15px;
+//         width: 620px;
+//         height: 620px;
+//     }
+// }
+
+// .wrap {
+//     position: relative;
+//     border: 0.5px solid #A07B50;
+//     border-radius: 50%;
+//     width: 516px;
+//     height: 516px;
+//     margin-left: 56px;
+//     padding: 56px;
+//     background: linear-gradient(#181617, #181617) content-box,
+//         #1f1c1d;
+
+//     & .img-1 {
+//         width: 15px;
+//         height: 15px;
+//         border-radius: 50%;
+//         background: #A07B50;
+//         position: absolute;
+//         left: calc(45px - 12px);
+//         top: 150px;
+//     }
+
+//     & .img-2 {
+//         width: 15px;
+//         height: 15px;
+//         border-radius: 50%;
+//         background: #A07B50;
+//         position: absolute;
+//         left: calc(626.77px - 8px);
+//         top: 270px;
+//     }
+
+//     & .img-3 {
+//         width: 15px;
+//         height: 15px;
+//         border-radius: 50%;
+//         background: #A07B50;
+//         position: absolute;
+//         left: calc(39px);
+//         top: 472.5px;
+//     }
+
+//     & .img-4 {
+//         width: 15px;
+//         height: 15px;
+//         border-radius: 50%;
+//         background: #A07B50;
+//         position: absolute;
+//         left: calc(590px - 20px);
+//         top: 475px;
+//     }
+// }
+
+// .text {
+//     &-1 {
+//         text-align: right;
+//         max-width: 250px;
+//         position: absolute;
+//         left: calc(48px - 15px - 209px);
+//         top: calc(150px - 15px);
+//     }
+
+//     &-2 {
+//         width: 250px;
+//         position: absolute;
+//         left: calc(626.77px - 8px + 56px);
+//         top: calc(270px - 15px);
+//     }
+
+//     &-3 {
+//         text-align: right;
+//         max-width: 250px;
+//         position: absolute;
+//         left: calc(39px - 209px);
+//         top: calc(472.5px - 15px);
+//     }
+
+//     &-4 {
+//         text-align-last: left;
+//         width: 190px;
+//         position: absolute;
+//         left: calc(590px - 15px + 81px);
+//         top: calc(475px - 15px);
+//     }
+// }
+
 // Особенности породы ---------------------------------------------
 
 // Почему именно мы
@@ -317,9 +443,8 @@ section {
 
     & .col {
         background: @bg-body;
-        // min-height: 30rem;
-        margin-left: 1%;
-        margin-right: 1%;
+        margin: 1%;
+        max-width: 33rem;
         padding: 2rem;
     }
 
@@ -353,6 +478,55 @@ section {
 
 // Об уходе за Мейн-Куном
 
+.care {
+    background: url('../img/bg-care.jpg') no-repeat center center / cover;
+}
+
+.table {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+    margin-top: 6rem;
+
+    &-cell {
+        display: grid;
+        grid-template-areas: "text arrow";
+        grid-template-columns: 8fr 1fr;
+        border: 1px solid @color-gold;
+    }
+
+    &-block {
+        grid-area: text;
+        text-align: left;
+        padding: 4rem;
+
+        &-title {
+            .boldRob();
+            color: @color-gold;
+            font-size: 2.2rem;
+            line-height: 1.18;
+        }
+
+        &-text {
+            .regRob();
+            font-size: 1.4rem;
+            line-height: 1.65;
+            color: white;
+        }
+
+        &-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            background-color: @color-gold;
+        }
+    }
+}
+
+
 // Об уходе за Мейн-Куном ------------------------------------------*/
 
 /*-----------------------------------------------------------------*/
@@ -367,9 +541,89 @@ section {
         padding-left: 5rem;
         padding-right: 5rem;
     }
+
+    // .promo-cat {
+    //     margin: calc(@coeff*(-160px)) auto 0;
+
+    //     & img {
+    //         width: calc(@coeff*620px);
+    //         height: calc(@coeff*620px);
+    //     }
+    // }
+
+    // .circle-block {
+    //     font-size: 1.4rem;
+    // }
+
+    // .wrap {
+    //     width: calc(@coeff*516px);
+    //     height: calc(@coeff*516px);
+    //     // margin-left: calc(@coeff*56px);
+    //     padding: calc(@coeff*56px);
+
+    //     & .img {
+    //         &-1 {
+    //             left: calc(@coeff*(45px - 15px));
+    //             top: calc(@coeff*150px);
+    //         }
+
+    //         &-2 {
+    //             left: calc(@coeff*(626.77px - 8px));
+    //             top: calc(@coeff*270px);
+    //         }
+
+    //         &-3 {
+    //             left: calc(@coeff*39px);
+    //             top: calc(@coeff*472.5px);
+    //         }
+
+    //         &-4 {
+    //             left: calc(@coeff*(590px - 20px));
+    //             top: calc(@coeff*475px);
+    //         }
+    //     }
+    // }
+
+    // .text {
+    //     &-1 {
+    //         left: calc(@coeff*(48px - 15px - 209px));
+    //         top: calc(@coeff*(150px - 15px));
+    //         max-width: calc(@coeff*250px);
+    //     }
+
+    //     &-2 {
+    //         width: calc(@coeff*250px);
+    //         left: calc(@coeff*(626.77px - 8px + 56px));
+    //         top: calc(@coeff*(270px - 15px));
+    //     }
+
+    //     &-3 {
+    //         left: calc(@coeff*(39px - 209px));
+    //         top: calc(@coeff*(472.5px - 15px));
+    //         max-width: calc(@coeff*250px);
+    //     }
+
+    //     &-4 {
+    //         width: calc(@coeff*190px);
+    //         left: calc(@coeff*(590px - 15px + 81px));
+    //         top: calc(@coeff*(475px - 15px));
+    //     }
+    // }
+}
+
+@media (max-width: 992px) {
+    .table {
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        max-width: 60rem;
+    }
 }
 
 @media (max-width: 768px) {
+    .section-title {
+        font-size: 2.8rem;
+    }
+
     .header-title {
         margin-left: 4rem;
 
@@ -379,8 +633,8 @@ section {
     }
 
     .container {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .social {
@@ -407,6 +661,12 @@ section {
 
     .slider-nav {
         display: none;
+    }
+
+    .promo {
+        & .row {
+            flex-direction: column;
+        }
     }
 }
 
