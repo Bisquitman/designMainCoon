@@ -168,10 +168,6 @@ h2 {
   margin-top: 1rem;
   -o-object-fit: contain;
      object-fit: contain;
-  fill: white;
-}
-.social-icon:hover {
-  fill: #A07B50;
 }
 .social .wrapper {
   position: relative;
@@ -322,7 +318,7 @@ h2 {
   background: #A07B50;
 }
 .promo .card:hover .card-img {
-  fill: white;
+  fill: #fff;
   stroke: #A07B50;
 }
 
